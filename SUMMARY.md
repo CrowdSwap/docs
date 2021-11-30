@@ -27,9 +27,9 @@
 
 ## Community
 
-* [Twitter](community/twitter.md)
-* [Telegram](community/telegram.md)
-* [Discord](community/discord.md)
+* [Twitter](https://twitter.com/CrowdSwap_App)
+* [Telegram](https://t.me/crowdswap)
+* [Discord](https://discord.com/invite/XMX8GHAr)
 
 ## Developers
 
