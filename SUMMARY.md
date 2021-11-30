@@ -27,7 +27,7 @@
 
 ## Community
 
-* [Forums](community/forums.md)
+* [Twitter](community/twitter.md)
 * [Telegram](community/telegram.md)
 * [Discord](community/discord.md)
 
