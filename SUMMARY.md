@@ -6,7 +6,6 @@
 
 * [Search](walkthroughs-product/search.md)
 * [Trade](walkthroughs-product/trade.md)
-* [Invest](walkthroughs-product/invest.md)
 
 ## Core concepts
 
