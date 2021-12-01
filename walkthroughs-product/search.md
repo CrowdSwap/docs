@@ -8,7 +8,7 @@ With Crowdswap´s search app, you will always find the best prices in the crypto
 
 
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/search.png>)
 
 **Search**
 
