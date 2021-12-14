@@ -12,6 +12,8 @@ After estimating source token price in USDT, dex fee and network cost are estima
 For example by select ETH as source token and AUC as destination token you can see all calculated fees which come from estimation.
 Keep in mind that by clicking swap button, a new estimation will be performed based on the best price DEX. 
 
+![](../.gitbook/assets/estimate.png)
+
 
 ###Supported Networks and DEXes
 
