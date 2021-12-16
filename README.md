@@ -1,5 +1,6 @@
 # Introduction
 
+---
 
 ![](<.gitbook/assets/introduction.jpg>)
 
