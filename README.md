@@ -1,7 +1,5 @@
 # Introduction
-
 ---
-
 ![](<.gitbook/assets/introduction.jpg>)
 
 CrowdSwap is the **best-price-routing and aggregation protocol for decentralized finance (DeFi).**
