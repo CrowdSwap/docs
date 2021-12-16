@@ -5,7 +5,7 @@
 ## Walkthroughs (Product)
 
 * [Search](walkthroughs-product/search.md)
-* [Trade](walkthroughs-product/trade.md)
+* [Swap](walkthroughs-product/swap.md)
 
 ## Core concepts
 
