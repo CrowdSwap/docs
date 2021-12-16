@@ -1,5 +1,5 @@
 ---
-description: Swap
+description: Exchange one cryptocurrency for another
 ---
 
 # Swap
