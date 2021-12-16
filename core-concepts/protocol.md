@@ -2,14 +2,15 @@
 
 ###Fees/Estimation calculation
   
-Source token & Destination token prices in USDT are estimated from coingecko or Binance APIs (refer to [Developer](../developers/guides.md)).
+The price of source and destination tokens in USDT is inquired from coingecko or Binance APIs (for more information, refer to [Developer](../developers/guides.md)).
+The fee of each DEX and network cost are inquired from that DEX. Crowdswap fee is calculated as 0.1% of source price in USDT.
+All fees are deducted from destination amount except liquidity provider fee which is deducted from source token amount.
 
-After estimating source token price in USDT, dex fee and network cost are estimated from each DEXes. Crowdswap fee is calculated as 0.1% of amountInUSDT. All fees are deducted from Destination amount.
 ###
 
 ![](../.gitbook/assets/calculation-fees-table.png)
 ###
-For example by select ETH as source token and AUC as destination token you can see all calculated fees which come from estimation.
+For example, by selecting ETH as source token and AUC as destination token, you can see fees are calculated based on data from estimation.
 Keep in mind that by clicking swap button, a new estimation will be performed based on the best price DEX. 
 
 ![](../.gitbook/assets/estimate.png)
