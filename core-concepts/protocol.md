@@ -10,7 +10,7 @@ All fees are deducted from destination amount except liquidity provider fee whic
 
 ![](../.gitbook/assets/calculation-fees-table.png)
 
-* Gas Price: (https://ethgasstation.info/)
+* Gas Price: [https://ethgasstation.info/](https://ethgasstation.info/)
 * Gas Cost: Historical gas usage of functions in the target DEX
 * Amount In USDT: source token amount * source token price in USDT
 ###
