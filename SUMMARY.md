@@ -12,9 +12,9 @@
 * [Architecture](core-concepts/architecture.md)
 * [Protocol](core-concepts/protocol.md)
 * [Governance](core-concepts/governance/README.md)
-  * [Proposals and voting](core-concepts/governance/proposals-and-voting.md)
-  * [Crowd Token](core-concepts/governance/crowd-token.md)
-  * [MultiSig](core-concepts/governance/multisig.md)
+* [Proposals and voting](core-concepts/proposals-and-voting.md)
+* [Crowd Token](core-concepts/crowd-token.md)
+* [MultiSig](core-concepts/multisig.md)
 * [Security](core-concepts/security/README.md)
   * [Audits](core-concepts/security/audits.md)
 
