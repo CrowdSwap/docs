@@ -5,17 +5,16 @@
 ## Walkthroughs (Product)
 
 * [Search](walkthroughs-product/search.md)
-* [Trade](walkthroughs-product/trade.md)
-* [Invest](walkthroughs-product/invest.md)
+* [Swap](walkthroughs-product/swap.md)
 
 ## Core concepts
 
 * [Architecture](core-concepts/architecture.md)
 * [Protocol](core-concepts/protocol.md)
 * [Governance](core-concepts/governance/README.md)
-  * [Proposals and voting](core-concepts/governance/proposals-and-voting.md)
-  * [Crowd Token](core-concepts/governance/crowd-token.md)
-  * [MultiSig](core-concepts/governance/multisig.md)
+* [Proposals and voting](core-concepts/proposals-and-voting.md)
+* [Crowd Token](core-concepts/crowd-token.md)
+* [MultiSig](core-concepts/multisig.md)
 * [Security](core-concepts/security/README.md)
   * [Audits](core-concepts/security/audits.md)
 
@@ -27,9 +26,9 @@
 
 ## Community
 
-* [Forums](community/forums.md)
-* [Telegram](community/telegram.md)
-* [Discord](community/discord.md)
+* [Twitter](https://twitter.com/CrowdSwap_App)
+* [Telegram](https://t.me/crowdswap)
+* [Discord](https://discord.com/invite/XMX8GHAr)
 
 ## Developers
 
