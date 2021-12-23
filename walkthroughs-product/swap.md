@@ -13,4 +13,4 @@ These features increase user-friendliness and reduce complexity significantly.
 
 Before doing the swap, you can see all the extra costs and fees on the right side of the swap panel transparently.
 
-![](<../.gitbook/assets/swap.png>)
+![](<../.gitbook/assets/search.png>)
