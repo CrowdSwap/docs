@@ -7,23 +7,23 @@ The decentralized approach of the project is fundamental to CrowdSwap. Concentra
 the voting rights on one address is not a decentralized approach. Therefore, CrowdSwap
 provides additional rules that we believe contribute to the decentralization of a DAO:
 
-Voting rights of a staker are measured based on quadratic voting5
+#### Voting rights of a staker are measured based on quadratic voting
 
-a. I.e., if a staker has invested 5 million tokens, he will also benefit from at least
+I.e., if a staker has invested 5 million tokens, he will also benefit from at least
 0.5% of the distribution from the sales of the project. However, he can only
 participate in the governance process with the square root value of the tokens
 owned.
 
-The votes gain weight the more prolonged the tokens remain in the staking
+#### The votes gain weight the more prolonged the tokens remain in the staking
 
-a. Each month that tokens remain longer in staking or in the voters' wallet, they are
+Each month that tokens remain longer in staking or in the voters' wallet, they are
 added by a factor + 0.1. I.e. Every year, the voting power of the owner doubles.
 This way, the voting power can exceed the square root value. And large volumes
 of CROWD tokens in the staking secure the project and stabilize the token price.
 
-Inputs into the project and their total reconciliation
+#### Inputs into the project and their total reconciliation
 
-a. Every staker can make suggestions for the improvement of the CrowdSwap
+Every staker can make suggestions for the improvement of the CrowdSwap
 project. If these are supported by more than 90% of the eligible voters
 absolutely (each address counts only once), the proposer receives a VIP rank,
 which increases the number of votes again. Depending on levels yet to be
