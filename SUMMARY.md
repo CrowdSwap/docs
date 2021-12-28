@@ -16,7 +16,6 @@
 * [Crowd Token](core-concepts/crowd-token.md)
 * [MultiSig](core-concepts/multisig.md)
 * [Security](core-concepts/security/README.md)
-  * [Audits](core-concepts/security/audits.md)
 
 ***
 
