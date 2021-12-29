@@ -11,8 +11,8 @@ The following picture illustrates the blueprint of the CrowdSwap architecture an
 - Best Price Router and Dex Aggregator APIs
 - Swap Smart Contract
 
+![Crowdswap-Architecture](../.gitbook/assets/architecture.png)
 
-![Crowdswap-Architecture](https://user-images.githubusercontent.com/94463487/145383633-3eae4231-68ad-4794-ab69-4c9b71615b1b.png)
 
 ## Front-Office Application
 
