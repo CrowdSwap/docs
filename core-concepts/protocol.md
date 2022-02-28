@@ -43,7 +43,8 @@ Keep in mind that by clicking swap button, a new estimation will be performed ba
 
 * Token: [0x483dd3425278C1f79F377f1034d9d2CaE55648B6](https://polygonscan.com/token/0x483dd3425278C1f79F377f1034d9d2CaE55648B6)
 * Distribution: [0xBeDf619c69f5C1655E58463B85A4EE67629dE409](https://polygonscan.com/address/0xBeDf619c69f5C1655E58463B85A4EE67629dE409)
+* Staking: [0x3C868fe859eF46a133e032f22B443e6Efd617449](https://polygonscan.com/address/0x3C868fe859eF46a133e032f22B443e6Efd617449)
 * Swap
   * Ethereum: [0x467eC2d26Bb7DE784A4584c6762B43eb69e65636](https://etherscan.io/address/0x467eC2d26Bb7DE784A4584c6762B43eb69e65636)
-  * BSC: [0x467eC2d26Bb7DE784A4584c6762B43eb69e65636](https://bscscan.com/address/0x467eC2d26Bb7DE784A4584c6762B43eb69e65636)
-  * Polygon: [0x467eC2d26Bb7DE784A4584c6762B43eb69e65636](https://polygonscan.com/address/0x467eC2d26Bb7DE784A4584c6762B43eb69e65636)
+  * BSC: [0xd4560c06db2bAe0b06E9243896aD48e4bD14cdb2](https://bscscan.com/address/0xd4560c06db2bAe0b06E9243896aD48e4bD14cdb2)
+  * Polygon: [0xBBc607D84eE5836C802B8b98392C8EAd8B9cDa5D](https://polygonscan.com/address/0xBBc607D84eE5836C802B8b98392C8EAd8B9cDa5D)
