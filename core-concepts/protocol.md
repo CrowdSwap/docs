@@ -30,6 +30,7 @@ Keep in mind that by clicking swap button, a new estimation will be performed ba
     * Balancer
     * Kyber
     * Crypto.com
+    * Curve v1
 ####  
 * #### BSC Network
     * Pancake
