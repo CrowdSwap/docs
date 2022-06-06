@@ -31,22 +31,28 @@ Keep in mind that by clicking swap button, a new estimation will be performed ba
     * Kyber
     * Crypto.com
     * Curve v1
+    * Radioshack
 ####  
 * #### BSC Network
     * Pancake
     * Sushiswap
     * Apeswap
     * Biswap
+    * Radioshack
 ####
 * #### Polygon Network
     * Quickswap
     * Sushiswap
     * Uniswap V3
     * Apeswap
+    * Radioshack
 ####
 * #### Avalanche Network
     * Trader Joe
     * Sushiswap
+    * Dodo
+    * Radioshack
+    * Pangolin
   
 ### Contracts
 
