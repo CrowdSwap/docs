@@ -32,27 +32,32 @@ Keep in mind that by clicking swap button, a new estimation will be performed ba
     * Crypto.com
     * Curve v1
     * Radioshack
+    * Dodo
 ####  
 * #### BSC Network
     * Pancake
     * Sushiswap
     * Apeswap
     * Biswap
+    * Curve v1
     * Radioshack
+    * Dodo
 ####
 * #### Polygon Network
     * Quickswap
     * Sushiswap
     * Uniswap V3
     * Apeswap
+    * Curve v1
     * Radioshack
 ####
 * #### Avalanche Network
     * Trader Joe
     * Sushiswap
-    * Dodo
+    * Curve v1
     * Radioshack
     * Pangolin
+    * Dodo
   
 ### Contracts
 
