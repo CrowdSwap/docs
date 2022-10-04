@@ -2,6 +2,11 @@
 
 * [Introduction](README.md)
 
+## How to
+
+* [How to buy CROWD token?](how-to/how-to-buy-crowd-token.md)
+* [how to use CROWD Staking?](how-to/how-to-use-crowd-staking.md)
+
 ## Walkthroughs (Product)
 
 * [Search](walkthroughs-product/search.md)
@@ -17,10 +22,6 @@
 * [MultiSig](core-concepts/multisig.md)
 * [Security](core-concepts/security/README.md)
 
-## How to
-
-* [How to buy Crowd token?](how-to/how-to-buy-crowd-token.md)
-* [how to use CROWD Staking?](how-to/how-to-use-crowd-staking.md)
 ***
 
 * [Api](api.md)
