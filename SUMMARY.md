@@ -7,6 +7,8 @@
 * [How to buy CROWD token?](how-to/how-to-buy-crowd-token.md)
 * [How to use CROWD Staking?](how-to/how-to-use-crowd-staking.md)
 * [How to do Cross Chain Swap in CrowdSwap?](how-to/how_to_do_cross_chain_swap_in_crowdswap.md)
+* [How to use CROWD Mining?](how-to/how_to_use_crowd_mining.md)
+* [How to connect your wallet to CrowdSwap app?](how-to/how_to_connect_your_wallet_to_crowdswap_app.md)
 
 ## Walkthroughs (Product)
 
