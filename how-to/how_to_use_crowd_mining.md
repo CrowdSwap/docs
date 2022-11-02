@@ -4,7 +4,7 @@
 
 ![](../.gitbook/assets/how-to-use-crowd-mining.png)
 
-1: Launch to CrowdSwap app page.
+1: Launch CrowdSwap app page.
 
 ![](../.gitbook/assets/use-crowd-mining.png)
 
