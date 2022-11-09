@@ -9,6 +9,8 @@
 * [How to do Cross Chain Swap in CrowdSwap?](how-to/how_to_do_cross_chain_swap_in_crowdswap.md)
 * [How to use CROWD Mining?](how-to/how_to_use_crowd_mining.md)
 * [How to connect your wallet to CrowdSwap app?](how-to/how_to_connect_your_wallet_to_crowdswap_app.md)
+* [How can you find out how much you earned from one opportunity?](how-to/how-can-you-find-out-how-much-you-earned-from-one-opportunity.md)
+* [How to choose best price route for swapping?](how-to/how-to-choose-best-price-route-for-swapping.md)
 
 ## Walkthroughs (Product)
 
