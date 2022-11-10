@@ -8,7 +8,7 @@
 
 ![](../.gitbook/assets/how-to-choose-best-price-route-for-swapping-1.png)
 
-2: Launch the app page www.crowdswap.org/swap
+2: Launch the app page www.app.crowdswap.org/swap
 
 ![](../.gitbook/assets/how-to-choose-best-price-route-for-swapping-2.png)
 
