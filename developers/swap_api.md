@@ -2,7 +2,7 @@
 
 ## Estimate all
 
-This endpoint finds a list of dexes which a selected pair can swap with. The list is sorted by profit, so we recomend to choose the first dex in the list.
+This endpoint finds a list of dexes, with which a selected pair can swap. The list is sorted by profit, so we recommend to choose the first dex in the list.
 
 ```
 curl -X 'GET' 'https://app.crowdswap.org/api/v1/swap/estimate-all?fromToken%5Baddress%5D=0x0000000000000000000000000000000000001010&fromToken%5BchainId%5D=137&fromToken%5Bdecimals%5D=18&fromToken%5Bname%5D=Matic%20Token&fromToken%5Bsymbol%5D=MATIC&fromToken%5Bprice%5D=0.94036&toToken%5Baddress%5D=0x483dd3425278C1f79F377f1034d9d2CaE55648B6&toToken%5BchainId%5D=137&toToken%5Bdecimals%5D=18&toToken%5Bname%5D=Crowd%20Token&toToken%5Bsymbol%5D=CROWD&toToken%5Bprice%5D=0.10172&amount=1000000000000000000&networkCoinPrice=0.98&slippage=0.5&deadline=30' \

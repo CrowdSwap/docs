@@ -2,11 +2,11 @@
 
 ### Introduction
 
-Crowdswap provides a dezen APIs that helps DeFi apps being more tangeble for end users.
+Crowdswap provides a dozen APIs that helps DeFi apps being more tangible for end users.
 
-- Finding the best route and dex for swapping is one of these APIs. We've been trying to create and keep update a list of the most profitable dexes and offer the to our users.
+- Finding the best route and dex for swapping is one of these APIs. We've been trying to create and update a list of the most profitable dexes and offer them to our users.
 
-- Cross-chain is another service that let users to swap they asset between different chains. Similar to swap, we tried to provide an API that simplifies the process of swapping in away that end user do not to worry about a cross-chain steps.
+- Cross-chain is another service that let users to Cross chain swap their asset between different chains. Similar to swap, we tried to provide an API that simplifies the process of swapping in a way that end user do not to worry about a cross-chain steps.
 
 Before explaining more about the details of the API, here is the link of endpoints in the swagger format: [Swagger UI](./api.md)
 
