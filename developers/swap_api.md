@@ -80,7 +80,7 @@ curl -X 'GET' 'https://app.crowdswap.org/api/v1/swap/estimate-all?fromToken%5Bad
 
 This endpoint returns from, to, data, value, and gasLimit, all of which needed for executing a swap
 
-- A dex name must be added to the url. The dex name can be found in estimation e.g Quickswap, Sushiswap
+- A dex name must be added to the url. The dex name can be found in `Estimate all` response e.g Quickswap, Sushiswap
 
 ```
 curl -X 'GET' \

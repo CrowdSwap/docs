@@ -24,6 +24,8 @@ npm install web3
 npm install --save web3modal
 ```
 
+This code is for Angular:
+
 ```javascript
 import { Injectable } from '@angular/core';
 import Web3 from "web3";
