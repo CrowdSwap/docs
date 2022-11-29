@@ -86,6 +86,7 @@ This endpoint returns from, to, data, value, and gasLimit, all of which needed f
 curl -X 'GET' \
   'https://app.crowdswap.org/api/v1/swap/{dex}?fromToken%5Baddress%5D=0x0000000000000000000000000000000000001010&fromToken%5BchainId%5D=137&fromToken%5Bdecimals%5D=18&fromToken%5Bname%5D=Matic%20Token&fromToken%5Bsymbol%5D=MATIC&fromToken%5Bprice%5D=0.94036&toToken%5Baddress%5D=0x483dd3425278C1f79F377f1034d9d2CaE55648B6&toToken%5BchainId%5D=137&toToken%5Bdecimals%5D=18&toToken%5Bname%5D=Crowd%20Token&toToken%5Bsymbol%5D=CROWD&toToken%5Bprice%5D=0.10172&amount=1000000000000000000&networkCoinPrice=1000&slippage=0.5&userAddress=0x000000000000000000000000000000000000000&amountOutMin=1000&deadline=30' \
   -H 'accept: application/json'
+  -H 'x-api-key: YOUR_API_KEY'
 ```
 
 ### Estimation Request
@@ -133,6 +134,7 @@ This endpoint finds a route with the potentially best possible outcome for the r
 curl -X 'GET' \
   'https://app.crowdswap.org/api/v1/crossChainSwap/estimate?srcChainId=1&srcChainTokenInAddress=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&srcChainTokenInAmount=1000000000000000000&slippage=3&dstChainId=56&dstChainTokenOutAddress=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&userAddress=0x000000000000000000000000000000000000000' \
   -H 'accept: application/json'
+  -H 'x-api-key: YOUR_API_KEY'
 ```
 
 ### Cross chain estimation Request
@@ -217,6 +219,7 @@ The transaction must be signed by the sender and sent to the blockchain by the r
 curl -X 'GET' \
   'https://app.crowdswap.org/api/v1/crossChainSwap/transaction?srcChainId=1&srcChainTokenInAddress=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&srcChainTokenInAmount=1000000000000000000&slippage=3&dstChainId=56&dstChainTokenOutAddress=0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE&userAddress=0xFD4f361269dCdE0bc1CB410b54c0c30331a4FC99' \
   -H 'accept: application/json'
+  -H 'x-api-key: YOUR_API_KEY'
 ```
 
 | Field                   | Description                                                                                                                       | Example                                                                                                       |
