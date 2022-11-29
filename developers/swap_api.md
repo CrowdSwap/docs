@@ -2,7 +2,7 @@
 
 ## Estimate all
 
-This endpoint finds a list of dexes, with which a selected pair can swap. The list is sorted by profit, so we recommend to choose the first dex in the list.
+This endpoint finds a list of dexes, with which a selected pair can be swapped. The list is sorted by profit, so we recommend to choose the first dex in the list.
 
 ```
 curl -X 'GET' 'https://app.crowdswap.org/api/v1/swap/estimate-all?fromToken%5Baddress%5D=0x0000000000000000000000000000000000001010&fromToken%5BchainId%5D=137&fromToken%5Bdecimals%5D=18&fromToken%5Bname%5D=Matic%20Token&fromToken%5Bsymbol%5D=MATIC&fromToken%5Bprice%5D=0.94036&toToken%5Baddress%5D=0x483dd3425278C1f79F377f1034d9d2CaE55648B6&toToken%5BchainId%5D=137&toToken%5Bdecimals%5D=18&toToken%5Bname%5D=Crowd%20Token&toToken%5Bsymbol%5D=CROWD&toToken%5Bprice%5D=0.10172&amount=1000000000000000000&networkCoinPrice=0.98&slippage=0.5&deadline=30' \
@@ -78,7 +78,7 @@ curl -X 'GET' 'https://app.crowdswap.org/api/v1/swap/estimate-all?fromToken%5Bad
 
 ## Swap
 
-This endpoint returns from, to, data, value, and gasLimit, all of which needed for executing a swap
+This endpoint returns from, to, data, value, and gasLimit, all of which needed for executing a swap.
 
 - A dex name must be added to the url. The dex name can be found in `Estimate all` response e.g Quickswap, Sushiswap
 
@@ -128,7 +128,7 @@ curl -X 'GET' \
 
 ### Cross chain estimation
 
-This endpoint finds a route with the potentially best possible outcome for the requested cross-chain swap and returns an estimation
+This endpoint finds a route with the potentially best possible outcome for the requested cross-chain swap and returns an estimation.
 
 ```
 curl -X 'GET' \
@@ -289,7 +289,7 @@ curl -X 'GET' \
 
 ## How to send a transaction
 
-Both `Swap` and `Cross chain swap` API return the data needed for executing a transaction. The data, which named `tx` in below code, contains `from (user address)`, `to (contract address)`, `data (populated data)`, `value (coin value if needed)`, `gasLimit`. You can use below code to run your transaction.
+Both `Swap` and `Cross-chain swap` API return the data needed for executing a transaction. The data, which named `tx` in below code, contains `from (user address)`, `to (contract address)`, `data (populated data)`, `value (coin value if needed)`, `gasLimit`. You can use below code to run your transaction.
 
 ```javascript
 import { ExternalProvider, Web3Provider } from '@ethersproject/providers';
