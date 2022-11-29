@@ -29,11 +29,6 @@
 
 ---
 
-### Developers
-
-- [Overview](developers/overview.md)
-- [Swagger](developers/api.md)
-- [Swap & Cross-chain](developers/swap_api.md)
 - [WhitePaper](https://crowdswap.org/wp-content/uploads/2021/06/Whitepaper_V1-1.pdf)
 - [FAQ](https://crowdswap.org/faq/)
 
@@ -45,6 +40,9 @@
 
 ## Developers
 
+- [Overview](developers/overview.md)
+- [Swagger](developers/api.md)
+- [Swap & Cross-chain](developers/swap_api.md)
 - [Smart Contract](developers/smart-contract.md)
 - [Guides](developers/guides.md)
 - [GitLab](https://gitlab.com/IT-Street/crowdswap)
