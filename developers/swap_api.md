@@ -291,6 +291,8 @@ curl -X 'GET' \
 
 Both `Swap` and `Cross-chain swap` API return the data needed for executing a transaction. The data, which named `tx` in below code, contains `from (user address)`, `to (contract address)`, `data (populated data)`, `value (coin value if needed)`, `gasLimit`. You can use below code to run your transaction.
 
+To send a transaction, you can get `tx` from the response of Swap and Cross-chain end-points.
+
 ```javascript
 import { ExternalProvider, Web3Provider } from '@ethersproject/providers';
 
