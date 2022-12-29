@@ -11,6 +11,7 @@
 - [How to connect your wallet to CrowdSwap app?](how-to/how_to_connect_your_wallet_to_crowdswap_app.md)
 - [How can you find out how much you earned from one opportunity?](how-to/how-can-you-find-out-how-much-you-earned-from-one-opportunity.md)
 - [How to choose best price route for swapping?](how-to/how-to-choose-best-price-route-for-swapping.md)
+- [How to Install MetaMask Web 3 Wallet on Chrome 2023?](how-to/how-to-install-metamask-web-3-wallet-on-chrome-2023.md)
 
 ## Walkthroughs (Product)
 
