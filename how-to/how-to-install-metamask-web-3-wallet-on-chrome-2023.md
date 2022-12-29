@@ -38,7 +38,7 @@ The first step is to create a password for your wallet. It has to have at least 
 
 > Repeat the password to confirm it
 
-> read the “terms of use” and check it
+> Read the “terms of use” and check it
 
 > Click the “create” button 
 
