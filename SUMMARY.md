@@ -15,7 +15,7 @@
 
 ## Brand Assets
 
-- [Brand Assets](Brand Assets/brand-assets.md)
+- [Brand Assets](brand-assets/brand-assets.md)
 
 ## Walkthroughs (Product)
 
