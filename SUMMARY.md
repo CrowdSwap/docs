@@ -2,16 +2,23 @@
 
 - [Introduction](README.md)
 
-## How to
+[comment]: <> (## How to)
 
-- [How to buy CROWD token?](how-to/how-to-buy-crowd-token.md)
-- [How to use CROWD Staking?](how-to/how-to-use-crowd-staking.md)
-- [How to do Cross Chain Swap in CrowdSwap?](how-to/how_to_do_cross_chain_swap_in_crowdswap.md)
-- [How to use CROWD Mining?](how-to/how_to_use_crowd_mining.md)
-- [How to connect your wallet to CrowdSwap app?](how-to/how_to_connect_your_wallet_to_crowdswap_app.md)
-- [How can you find out how much you earned from one opportunity?](how-to/how-can-you-find-out-how-much-you-earned-from-one-opportunity.md)
-- [How to choose best price route for swapping?](how-to/how-to-choose-best-price-route-for-swapping.md)
-- [How to Install MetaMask Web 3 Wallet on Chrome 2023?](how-to/how-to-install-metamask-web-3-wallet-on-chrome-2023.md)
+[comment]: <> (- [How to buy CROWD token?]&#40;how-to/how-to-buy-crowd-token.md&#41;)
+
+[comment]: <> (- [How to use CROWD Staking?]&#40;how-to/how-to-use-crowd-staking.md&#41;)
+
+[comment]: <> (- [How to do Cross Chain Swap in CrowdSwap?]&#40;how-to/how_to_do_cross_chain_swap_in_crowdswap.md&#41;)
+
+[comment]: <> (- [How to use CROWD Mining?]&#40;how-to/how_to_use_crowd_mining.md&#41;)
+
+[comment]: <> (- [How to connect your wallet to CrowdSwap app?]&#40;how-to/how_to_connect_your_wallet_to_crowdswap_app.md&#41;)
+
+[comment]: <> (- [How can you find out how much you earned from one opportunity?]&#40;how-to/how-can-you-find-out-how-much-you-earned-from-one-opportunity.md&#41;)
+
+[comment]: <> (- [How to choose best price route for swapping?]&#40;how-to/how-to-choose-best-price-route-for-swapping.md&#41;)
+
+[comment]: <> (- [How to Install MetaMask Web 3 Wallet on Chrome 2023?]&#40;how-to/how-to-install-metamask-web-3-wallet-on-chrome-2023.md&#41;)
 
 ## Brand Assets
 
