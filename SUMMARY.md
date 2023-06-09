@@ -13,6 +13,10 @@
 - [How to choose best price route for swapping?](how-to/how-to-choose-best-price-route-for-swapping.md)
 - [How to Install MetaMask Web 3 Wallet on Chrome 2023?](how-to/how-to-install-metamask-web-3-wallet-on-chrome-2023.md)
 
+## Brand Assets
+
+- [Brand Assets](Brand Assets/brand-assets.md)
+
 ## Walkthroughs (Product)
 
 - [Search](walkthroughs-product/search.md)
