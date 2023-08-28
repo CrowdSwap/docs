@@ -58,6 +58,7 @@
 - [Overview](developers/overview.md)
 - [Swagger](developers/api.md)
 - [Swap & Cross-chain](developers/swap_api.md)
+- [Swap Widget](developers/widget.md)
 - [Smart Contract](developers/smart-contract.md)
 - [Guides](developers/guides.md)
 - [GitLab](https://gitlab.com/IT-Street/crowdswap)
