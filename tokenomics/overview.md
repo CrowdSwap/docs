@@ -9,7 +9,7 @@ The diagram gives you a fast overview of the Total to circulating supply for the
 ![](../.gitbook/assets/tokenomics1.jpg)
 
 
-The diagram shows that the circulating supply with exceed 50% of the total supply already beginning of 2024 resulting in 80% at the end of 2025 reducing the risks of investors.
+The diagram shows that the circulating supply will exceed 50% of the total supply already beginning of 2024 resulting in 80% at the end of 2025 reducing the risks of investors.
 
 The strategic reserve of the project will go down to aproximately 100M CROWD tokens that will be distributed into the DAO once the pahse starts.
 
