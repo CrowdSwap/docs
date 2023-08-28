@@ -44,6 +44,9 @@
 - [WhitePaper](https://crowdswap.org/wp-content/uploads/2021/06/Whitepaper_V1-1.pdf)
 - [FAQ](https://crowdswap.org/faq/)
 
+## Tokenomics
+- [Overview](tokenomics/overview.md)
+
 ## Community
 
 - [Twitter](https://twitter.com/CrowdSwap_App)
