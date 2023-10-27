@@ -45,7 +45,7 @@ In your HTML file's `<body>` section, add the `<crowdswap-swap-widget>` element 
 
 You can receive your affiliate ID by using this [ link ](https://crowdswap.org/ambassador-program/).
 
-By using the affiliate ID key, any user who registers and trades through your website will earn you a commission. This commission is usually calculated based on the trading volume of the related users' business. By using an affiliate ID, the broker can track your results and performance and deposit a specified commission amount into your account.
+By using the affiliate ID key, you will earn commission whenever any user registers and trades through your website. This commission is usually calculated based on the trading volume. By using an affiliate ID, CrowdSwap can track your performance and deposit earned commission amount into your account.
 
 Make sure to replace the fromTokenAddress, fromChainId, toTokenAddress, and toChainId values with the appropriate token addresses and chain IDs.
 
