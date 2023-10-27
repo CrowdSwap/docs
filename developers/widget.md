@@ -29,11 +29,23 @@ In your HTML file's `<body>` section, add the `<crowdswap-swap-widget>` element 
     "fromChainId":137,
     "toTokenAddress":"0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
     "toChainId":56,
-    "theme":"light"
+    "theme":"light",
+    "affiliateId":"your affiliate Id"
 }'></crowdswap-swap-widget>
 ```
 
-Theme can be chosen to be light or dark. This will make the widget's look light or dark.
+| property name    | description                                                          |
+| ---------------- | -------------------------------------------------------------------- |
+| fromTokenAddress | default from token for first time visitors                           |
+| fromChainId      | default network that will be looked up for from token address        |
+| toTokenAddress   | default to token for first time visitors                             |
+| toChainId        | default network that will be looked up for to token address          |
+| theme            | can be light or dark. This will make the widget's look light or dark |
+| affiliateId      | your Affiliate IDs                                                   |
+
+You can receive your affiliate ID by using this [ link ](https://crowdswap.org/ambassador-program/).
+
+By using the affiliate ID key, any user who registers and trades through your website will earn you a commission. This commission is usually calculated based on the trading volume of the related users' business. By using an affiliate ID, the broker can track your results and performance and deposit a specified commission amount into your account.
 
 Make sure to replace the fromTokenAddress, fromChainId, toTokenAddress, and toChainId values with the appropriate token addresses and chain IDs.
 
