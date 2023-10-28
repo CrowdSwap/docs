@@ -24,6 +24,7 @@ In your HTML file's `<body>` section, add the `<crowdswap-swap-widget>` element 
 
 ```
 <crowdswap-swap-widget
+  id="crowdswapWidget"
   config='{
     "fromTokenAddress":"0x0000000000000000000000000000000000001010",
     "fromChainId":137,
