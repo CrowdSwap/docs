@@ -6,10 +6,6 @@ Integrating the CrowdSwap Swap Widget into your project is a straightforward pro
 
 ## Here is how you can do it in just a few steps:
 
-### Access Widget Resources
-
-First, access the necessary resources for the widget, including the JavaScript and CSS files. These resources are hosted on our server, ensuring you always have the latest version.
-
 ### Include Resources
 
 In your HTML file's <body> section, place the widget's HTML tag. Customize the configurations like fromTokenAddress, fromChainId, toTokenAddress, toChainId, and theme to match your requirements. Finally, include the widget's JavaScript file at the end of the <body> section. This file will load the widget's assets and make it interactive on your webpage.
@@ -77,9 +73,5 @@ Next, create your splash loading within an HTML tag with the given ID (below), s
 ```
 <div id="splash-div"></div>
 ```
-
-### Adjust Styling (Optional)
-
-If you want to customize the widget's appearance to match your website's design, you can use CSS to further style the widget's components.
 
 Using this easy step-by-step guide, you can integrate the CrowdSwap Swap Widget into your project and bring the power of cross-chain swaps to your business and application.
