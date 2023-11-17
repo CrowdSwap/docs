@@ -103,7 +103,7 @@ curl -X 'GET' \
 | toToken[symbol]     | Symbol of destination token                                                               | CROWD                                      |
 | amount              | An amount of input tokens to swap (the entrance amount must be based on token's decimal)  | 1000000000000000000                        |
 | userAddress         | Address of the user who initiates the swap transaction                                    | any arbitrary address                      |
-| userAddress         | Address of the recipient                                                                  | any arbitrary address                      |
+| receiverAddress     | Address of the recipient if it is different from the userAddress                          | any arbitrary address                      |
 
 #### Response
 
