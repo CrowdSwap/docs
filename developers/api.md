@@ -1,10 +1,10 @@
 # Api
 
-{% swagger src="/.gitbook/assets/swagger.json" path="/api/v1/swap/estimate-all" method="get" %}
+{% swagger src=".gitbook/assets/swagger.json" path="/api/v1/swap/estimate-all" method="get" %}
 [swagger.json](.gitbook/assets/swagger.json)
 {% endswagger %}
 
-{% swagger src="/.gitbook/assets/swagger.json" path="/api/v1/swap/{dex}" method="get" %}
+{% swagger src=".gitbook/assets/swagger.json" path="/api/v1/swap/{dex}" method="get" %}
 [swagger.json](.gitbook/assets/swagger.json)
 {% endswagger %}
 
