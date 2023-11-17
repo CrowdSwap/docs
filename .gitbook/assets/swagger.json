@@ -1325,6 +1325,10 @@
       }
     },
     "schemas": {
+      "Trade": {
+        "type": "object",
+        "properties": {}
+      },
       "EstimatedTradeDto": {
         "type": "object",
         "properties": {
