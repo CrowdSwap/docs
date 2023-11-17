@@ -1614,6 +1614,229 @@
           "msg"
         ]
       },
+      "SrcChainTokenIn": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "decimals": {
+            "type": "number"
+          },
+          "amount": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "name",
+          "symbol",
+          "decimals",
+          "amount"
+        ]
+      },
+      "SrcChainTokenOut": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "decimals": {
+            "type": "number"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "minAmount": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "name",
+          "symbol",
+          "decimals",
+          "amount",
+          "minAmount"
+        ]
+      },
+      "DstChainTokenIn": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "decimals": {
+            "type": "number"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "minAmount": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "name",
+          "symbol",
+          "decimals",
+          "amount",
+          "minAmount"
+        ]
+      },
+      "DstChainTokenOut": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "decimals": {
+            "type": "number"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "minAmount": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address",
+          "name",
+          "symbol",
+          "decimals",
+          "amount",
+          "minAmount"
+        ]
+      },
+      "Token": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "decimals": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "address",
+          "name",
+          "symbol",
+          "decimals"
+        ]
+      },
+      "ExecutionFee": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "$ref": "#/components/schemas/Token"
+          },
+          "recommendedAmount": {
+            "type": "string"
+          },
+          "actualAmount": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "token",
+          "recommendedAmount",
+          "actualAmount"
+        ]
+      },
+      "Estimation": {
+        "type": "object",
+        "properties": {
+          "srcChainTokenIn": {
+            "$ref": "#/components/schemas/SrcChainTokenIn"
+          },
+          "srcChainTokenOut": {
+            "$ref": "#/components/schemas/SrcChainTokenOut"
+          },
+          "dstChainTokenIn": {
+            "$ref": "#/components/schemas/DstChainTokenIn"
+          },
+          "dstChainTokenOut": {
+            "$ref": "#/components/schemas/DstChainTokenOut"
+          },
+          "executionFee": {
+            "$ref": "#/components/schemas/ExecutionFee"
+          }
+        },
+        "required": [
+          "srcChainTokenIn",
+          "srcChainTokenOut",
+          "dstChainTokenIn",
+          "dstChainTokenOut",
+          "executionFee"
+        ]
+      },
+      "Tx": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "to",
+          "data",
+          "value"
+        ]
+      },
+      "CrossChainEstimationResponseDto": {
+        "type": "object",
+        "properties": {
+          "estimation": {
+            "$ref": "#/components/schemas/Estimation"
+          },
+          "tx": {
+            "$ref": "#/components/schemas/Tx"
+          }
+        },
+        "required": [
+          "estimation",
+          "tx"
+        ]
+      },
       "FarmOpportunityResponseDto": {
         "type": "object",
         "properties": {
