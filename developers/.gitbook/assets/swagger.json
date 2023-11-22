@@ -1,11 +1,11 @@
 {
   "openapi": "3.0.0",
   "paths": {
-    "/api/v1/swap/estimate-all": {
+    "/api/v1/swap/quote": {
       "get": {
-        "operationId": "SwapController_getAllSwapEstimate",
-        "summary": "This endpoint provides estimates for all integrated dexes based on profit",
-        "description": "This endpoint retrieves a list of decentralized exchanges (dexes) where the selected pair can be swapped. The list is sorted by profit, so we recommend choosing the first dex in the list.",
+        "operationId": "SwapController_quote",
+        "summary": "This endpoint returns the estimation details and the transaction data of a swap",
+        "description": "This endpoint finds a route with potentially the best possible outcome for the requested pair. If ```userAddress``` is provided, it also returns the necessary details — ```from```, ```to```, ```data```, ```value```, and ```gasLimit``` — required for executing a swap transaction.",
         "parameters": [
           {
             "name": "fromToken",
@@ -16,7 +16,6 @@
               "fromToken[address]": "0x0000000000000000000000000000000000001010",
               "fromToken[chainId]": 137,
               "fromToken[decimals]": 18,
-              "fromToken[name]": "Matic Token",
               "fromToken[symbol]": "MATIC"
             },
             "schema": {
@@ -32,7 +31,6 @@
               "toToken[address]": "0x483dd3425278C1f79F377f1034d9d2CaE55648B6",
               "toToken[chainId]": 137,
               "toToken[decimals]": 18,
-              "toToken[name]": "Crowd Token",
               "toToken[symbol]": "CROWD"
             },
             "schema": {
@@ -99,6 +97,24 @@
                 "type": "string"
               }
             }
+          },
+          {
+            "name": "userAddress",
+            "required": false,
+            "in": "query",
+            "description": "If provided, the API returns the swapTx as well as the estimation. The \"from\" address of the transaction will be the ```userAddress```. The \"to\" address will be the ```receiverAddress``` specified in the request, if provided; otherwise, it will default to the ```userAddress```.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "receiverAddress",
+            "required": false,
+            "in": "query",
+            "description": "Address of the recipient. Provide this value only if it differs from the ```userAddress``` property.",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -107,19 +123,22 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AllEstimationResponseDto"
+                  "$ref": "#/components/schemas/EstimatedTradeDto"
                 }
               }
             }
           },
           "400": {
-            "description": "Invalid body attribute"
+            "description": "Invalid parameters"
           },
           "401": {
             "description": "Unauthorized"
           },
           "404": {
-            "description": "No estimation found for the given pair"
+            "description": "No quote found for the given pair"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "tags": [
@@ -132,11 +151,11 @@
         ]
       }
     },
-    "/api/v1/swap/{dex}": {
+    "/api/v1/swap/estimate-all": {
       "get": {
-        "operationId": "SwapController_getSwap",
-        "summary": "This endpoint returns the data for a swap transaction",
-        "description": "This endpoint returns ```from```, ```to```, ```data```, ```value```, and ```gasLimit```, all of which needed for executing a swap transaction  \n  \n* A dex name must be added to the url. The dex name can be found in estimation e.g ```CrowdSwapV2```, ```Quickswap```",
+        "operationId": "SwapController_getAllSwapEstimate",
+        "summary": "This endpoint provides the estimation details for all integrated dexes based on profit",
+        "description": "This endpoint retrieves a list of decentralized exchanges (dexes) where the selected pair can be swapped. The list is sorted by profit, so we recommend choosing the first dex in the list.",
         "parameters": [
           {
             "name": "fromToken",
@@ -147,7 +166,6 @@
               "fromToken[address]": "0x0000000000000000000000000000000000001010",
               "fromToken[chainId]": 137,
               "fromToken[decimals]": 18,
-              "fromToken[name]": "Matic Token",
               "fromToken[symbol]": "MATIC"
             },
             "schema": {
@@ -163,7 +181,156 @@
               "toToken[address]": "0x483dd3425278C1f79F377f1034d9d2CaE55648B6",
               "toToken[chainId]": 137,
               "toToken[decimals]": 18,
-              "toToken[name]": "Crowd Token",
+              "toToken[symbol]": "CROWD"
+            },
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "amount",
+            "required": true,
+            "in": "query",
+            "description": "An amount of ```fromToken``` to be swapped (The decimal of token must be considered in the amount)",
+            "examples": {
+              "1 MATIC (decimals=18)": {
+                "value": "1000000000000000000"
+              },
+              "1 USDT (decimals=6)": {
+                "value": "1000000"
+              },
+              "1 BNB (decimals=18)": {
+                "value": "1000000000000000000"
+              }
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "networkCoinPrice",
+            "required": false,
+            "in": "query",
+            "description": "The price of the selected network's coin based on USD. __Example: ```price of BNB = 245.82```__ ",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "slippage",
+            "required": false,
+            "in": "query",
+            "description": "A slippage constraint (in %) is a safeguard during swaps. It is used to calculate the minimum possible outcome during estimation.",
+            "schema": {
+              "default": "0.5",
+              "type": "string"
+            }
+          },
+          {
+            "name": "gasPrice",
+            "required": false,
+            "in": "query",
+            "description": "Gas Price based on selected network (The unit is gwei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filteredDexNames",
+            "required": false,
+            "in": "query",
+            "description": "filters dexes to be searched for an estimation, providing results only from these selected dexes.",
+            "example": "CrowdswapAggregator,CrowdSwapV2,Quickswap",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "userAddress",
+            "required": false,
+            "in": "query",
+            "description": "If provided, the API returns the swapTx as well as the estimation. The \"from\" address of the transaction will be the ```userAddress```. The \"to\" address will be the ```receiverAddress``` specified in the request, if provided; otherwise, it will default to the ```userAddress```.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "receiverAddress",
+            "required": false,
+            "in": "query",
+            "description": "Address of the recipient. Provide this value only if it differs from the ```userAddress``` property.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllEstimationResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "No estimation found for the given pair"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "tags": [
+          "swap"
+        ],
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/api/v1/swap/{dex}": {
+      "get": {
+        "operationId": "SwapController_getSwap",
+        "summary": "This endpoint returns the transaction data of a swap",
+        "description": "This endpoint returns the necessary details — ```from```, ```to```, ```data```, ```value```, and ```gasLimit``` — required for executing a swap transaction.  \n  \n* A dex name must be added to the url. The dex name can be found in estimation e.g., ```CrowdswapV2```, ```Quickswap```",
+        "parameters": [
+          {
+            "name": "fromToken",
+            "required": true,
+            "in": "query",
+            "description": "Source token. (Supported values for chainId are 1, 56, 137, 43114, 42161 and 324)",
+            "example": {
+              "fromToken[address]": "0x0000000000000000000000000000000000001010",
+              "fromToken[chainId]": 137,
+              "fromToken[decimals]": 18,
+              "fromToken[symbol]": "MATIC"
+            },
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "toToken",
+            "required": true,
+            "in": "query",
+            "description": "Destination token. (Supported values for chainId are 1, 56, 137, 43114, 42161 and 324)",
+            "example": {
+              "toToken[address]": "0x483dd3425278C1f79F377f1034d9d2CaE55648B6",
+              "toToken[chainId]": 137,
+              "toToken[decimals]": 18,
               "toToken[symbol]": "CROWD"
             },
             "schema": {
@@ -213,7 +380,7 @@
             "name": "userAddress",
             "required": true,
             "in": "query",
-            "description": "Address of the user who initiates the swap transaction",
+            "description": "If provided, the API returns the swapTx as well as the estimation. The \"from\" address of the transaction will be the ```userAddress```. The \"to\" address will be the ```receiverAddress``` specified in the request, if provided; otherwise, it will default to the ```userAddress```.",
             "schema": {
               "type": "string"
             }
@@ -222,14 +389,14 @@
             "name": "receiverAddress",
             "required": false,
             "in": "query",
-            "description": "Address of the recipient",
+            "description": "Address of the recipient. Provide this value only if it differs from the ```userAddress``` property.",
             "schema": {
               "type": "string"
             }
           },
           {
             "name": "amountOutMin",
-            "required": true,
+            "required": false,
             "in": "query",
             "description": "The minimum amount out expected from a swap (This amount is available in the estimation result. Also the decimal of token must be considered in the amount)",
             "schema": {
@@ -238,7 +405,7 @@
           },
           {
             "name": "deadline",
-            "required": true,
+            "required": false,
             "in": "query",
             "description": "Swap estimation will be expired after this deadline (The unit of deadline is based on minutes)",
             "examples": {
@@ -279,10 +446,243 @@
             }
           },
           "400": {
-            "description": "Invalid body attribute"
+            "description": "Invalid parameters"
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "tags": [
+          "swap"
+        ],
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/api/v1/swap/cross-dex": {
+      "get": {
+        "operationId": "SwapController_getCrossDexSwap",
+        "summary": "This endpoint returns the transaction data of a cross-dex swap",
+        "description": "This endpoint must be called if the ```estimate-all``` endpoint returns a cross-dex estimation. If the estimation, typically the first index in the ```successfulEstimationsList``` list, includes ```firstDex``` and ```secondDex``` properties, it means that a potential connection between two dexes is available for creating an optimal route. The endpoint returns the necessary details — ```from```, ```to```, ```data```, ```value```, and ```gasLimit``` — required for executing a cross-dex swap transaction.",
+        "parameters": [
+          {
+            "name": "fromToken",
+            "required": true,
+            "in": "query",
+            "description": "Source token. (Supported values for chainId are 1, 56, 137, 43114, 42161 and 324)",
+            "example": {
+              "fromToken[address]": "0x0000000000000000000000000000000000001010",
+              "fromToken[chainId]": 137,
+              "fromToken[decimals]": 18,
+              "fromToken[symbol]": "MATIC"
+            },
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "toToken",
+            "required": true,
+            "in": "query",
+            "description": "Destination token. (Supported values for chainId are 1, 56, 137, 43114, 42161 and 324)",
+            "example": {
+              "toToken[address]": "0x483dd3425278C1f79F377f1034d9d2CaE55648B6",
+              "toToken[chainId]": 137,
+              "toToken[decimals]": 18,
+              "toToken[symbol]": "CROWD"
+            },
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "amount",
+            "required": true,
+            "in": "query",
+            "description": "An amount of ```fromToken``` to be swapped (The decimal of token must be considered in the amount)",
+            "examples": {
+              "1 MATIC (decimals=18)": {
+                "value": "1000000000000000000"
+              },
+              "1 USDT (decimals=6)": {
+                "value": "1000000"
+              },
+              "1 BNB (decimals=18)": {
+                "value": "1000000000000000000"
+              }
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "networkCoinPrice",
+            "required": false,
+            "in": "query",
+            "description": "The price of the selected network's coin based on USD. __Example: ```price of BNB = 245.82```__ ",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "slippage",
+            "required": false,
+            "in": "query",
+            "description": "A slippage constraint (in %) is a safeguard during swaps. It is used to calculate the minimum possible outcome during estimation.",
+            "schema": {
+              "default": "0.5",
+              "type": "string"
+            }
+          },
+          {
+            "name": "userAddress",
+            "required": true,
+            "in": "query",
+            "description": "If provided, the API returns the swapTx as well as the estimation. The \"from\" address of the transaction will be the ```userAddress```. The \"to\" address will be the ```receiverAddress``` specified in the request, if provided; otherwise, it will default to the ```userAddress```.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "receiverAddress",
+            "required": false,
+            "in": "query",
+            "description": "Address of the recipient. Provide this value only if it differs from the ```userAddress``` property.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amountOutMin",
+            "required": false,
+            "in": "query",
+            "description": "The minimum amount out expected from a swap (This amount is available in the estimation result. Also the decimal of token must be considered in the amount)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "deadline",
+            "required": false,
+            "in": "query",
+            "description": "Swap estimation will be expired after this deadline (The unit of deadline is based on minutes)",
+            "examples": {
+              "15": {
+                "value": "15"
+              },
+              "20": {
+                "value": "20"
+              },
+              "30": {
+                "value": "30"
+              }
+            },
+            "schema": {
+              "default": "30",
+              "type": "string"
+            }
+          },
+          {
+            "name": "firstSwapName",
+            "required": true,
+            "in": "query",
+            "description": "The name of the first dex. It is available in the estimation result.",
+            "example": "Quickswap",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "secondSwapName",
+            "required": true,
+            "in": "query",
+            "description": "The name of the second dex. It is available in the estimation result.",
+            "example": "CrowdswapV2",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "middleToken",
+            "required": true,
+            "in": "query",
+            "description": "The token which will be used as middle token between two dexes. It is available in the estimation result.",
+            "example": {
+              "fromToken[address]": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+              "fromToken[chainId]": 137,
+              "fromToken[decimals]": 18,
+              "fromToken[symbol]": "USDC"
+            },
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "amountInFirstSwap",
+            "required": true,
+            "in": "query",
+            "description": "An amount of ```fromToken``` to be swapped (The decimal of token must be considered in the amount)",
+            "examples": {
+              "1 MATIC (decimals=18)": {
+                "value": "1000000000000000000"
+              },
+              "1 USDT (decimals=6)": {
+                "value": "1000000"
+              },
+              "1 BNB (decimals=18)": {
+                "value": "1000000000000000000"
+              }
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amountInSecondSwap",
+            "required": true,
+            "in": "query",
+            "description": "An amount of ```middleToken``` to be swapped (The decimal of token must be considered in the amount)",
+            "examples": {
+              "1 USDC (decimals=6)": {
+                "value": "1000000000000000000"
+              },
+              "1 MATIC (decimals=18)": {
+                "value": "1000000"
+              },
+              "1 BNB (decimals=18)": {
+                "value": "1000000000000000000"
+              }
+            },
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SwapResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "tags": [
@@ -297,20 +697,19 @@
     },
     "/api/v1/crossChainSwap/estimate-all": {
       "get": {
-        "operationId": "CrossChainSwapController_getAllCrosschainEstimate",
-        "summary": "This endpoint returns the estimation of a cross-chain swap",
-        "description": "This endpoint finds a route with the potentially best possible outcome for the requested cross-chain pair and returns an estimation.",
+        "operationId": "CrossChainSwapController_getAllCrossChainEstimate",
+        "summary": "This endpoint returns the estimation details and the transaction data of a cross-chain",
+        "description": "This endpoint identifies the optimal route for the requested cross-chain pair, potentially offering the best outcome. If the userAddress is provided, it additionally returns the transaction details to be sent to the blockchain.",
         "parameters": [
           {
             "name": "fromToken",
             "required": true,
             "in": "query",
-            "description": "Source token. (Supported values for chainId are 1, 56, 137, 43114, 42161 and 324)",
+            "description": "Source token. (Supported values for chainId are 1, 56, 137, 43114 and 42161)",
             "example": {
               "fromToken[address]": "0x0000000000000000000000000000000000001010",
               "fromToken[chainId]": 137,
               "fromToken[decimals]": 18,
-              "fromToken[name]": "Matic Token",
               "fromToken[symbol]": "MATIC"
             },
             "schema": {
@@ -351,12 +750,11 @@
             "name": "toToken",
             "required": true,
             "in": "query",
-            "description": "Destination token. (Supported values for chainId are 1, 56, 137, 43114, 42161 and 324)",
+            "description": "Destination token. (Supported values for chainId are 1, 56, 137, 43114 and 42161)",
             "example": {
               "toToken[address]": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
               "toToken[chainId]": 56,
               "toToken[decimals]": 18,
-              "toToken[name]": "Binance Coin",
               "toToken[symbol]": "BNB"
             },
             "schema": {
@@ -367,7 +765,7 @@
             "name": "userAddress",
             "required": false,
             "in": "query",
-            "description": "Address of the user who initiates the cross-chain swap transaction",
+            "description": "Address of the user who initiates the cross-chain transaction",
             "schema": {
               "type": "string"
             }
@@ -385,10 +783,16 @@
             }
           },
           "400": {
-            "description": "Invalid body attribute"
+            "description": "Invalid parameters"
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "404": {
+            "description": "No estimation found for the given cross-chain pair"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "tags": [
@@ -403,9 +807,8 @@
     },
     "/api/v1/crossChainSwap/status/{crosschain}": {
       "get": {
-        "operationId": "CrossChainSwapController_getCrosschainStatus",
-        "summary": "This endpoint returns the status of cross-chain",
-        "description": "This endpoint get the status of cross-chain during its execution.",
+        "operationId": "CrossChainSwapController_getCrossChainStatus",
+        "summary": "This endpoint returns the status of a cross-chain",
         "parameters": [
           {
             "name": "transactionHash",
@@ -415,31 +818,168 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "crosschain",
+            "required": true,
+            "in": "path",
+            "description": "The number representing the cross-chain service used to initiate the cross-chain. This value, denoted as ```crossChain```, is accessible in the ```estimate-all``` response.",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrosschainStatusResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "No status found for the given transaction hash"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "tags": [
           "crossChainSwap"
+        ],
+        "security": [
+          {
+            "x-api-key": []
+          }
         ]
       }
     },
     "/api/v1/crossChainSwap/cancel/{crosschain}": {
       "get": {
         "operationId": "CrossChainSwapController_getCancelTransaction",
-        "summary": "This endpoint returns the transaction to cancel a cross-chain swap",
-        "description": "This endpoint returns the transaction to cancel a cross-chain swap",
-        "parameters": [],
+        "summary": "This endpoint returns the transaction data to cancel a cross-chain",
+        "description": "This endpoint returns the transaction needed to cancel a cross-chain. The transaction must be sent to the destination blockchain, where it will send a message to the source blockchain. The user funds, including all associated fees, will then be refunded.",
+        "parameters": [
+          {
+            "name": "transactionHash",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "crosschain",
+            "required": true,
+            "in": "path",
+            "description": "The number representing the cross-chain service used to initiate the cross-chain. This value, denoted as ```crossChain```, is accessible in the ```estimate-all``` result.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrosschainCancelResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         },
         "tags": [
           "crossChainSwap"
+        ],
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/api/v1/crossChainSwap/operating-expenses": {
+      "get": {
+        "operationId": "CrossChainSwapController_getApproximateOperatingExpenses",
+        "summary": "This endpoint returns the approximate operating expenses for a cross-chain",
+        "description": "This endpoint provides an estimate of the operating expenses (execution cost) for a cross-chain. It is particularly useful when implementing max balance functionality. Deduct the ```operatingExpenses``` from the user balance before calling the estimate-all endpoint. If the source token is the coin of the source network, also deduct the ```fixFee```.",
+        "parameters": [
+          {
+            "name": "fromToken",
+            "required": true,
+            "in": "query",
+            "description": "Source token. (Supported values for chainId are 1, 56, 137, 43114 and 42161)",
+            "example": {
+              "fromToken[address]": "0x0000000000000000000000000000000000001010",
+              "fromToken[chainId]": 137,
+              "fromToken[decimals]": 18,
+              "fromToken[symbol]": "MATIC"
+            },
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "toToken",
+            "required": true,
+            "in": "query",
+            "description": "Destination token. (Supported values for chainId are 1, 56, 137, 43114 and 42161)",
+            "example": {
+              "toToken[address]": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+              "toToken[chainId]": 56,
+              "toToken[decimals]": 18,
+              "toToken[symbol]": "BNB"
+            },
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CrosschainOperatingExpensesResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "tags": [
+          "crossChainSwap"
+        ],
+        "security": [
+          {
+            "x-api-key": []
+          }
         ]
       }
     },
@@ -1493,23 +2033,23 @@
         "properties": {
           "from": {
             "type": "string",
-            "description": "User address who submits input tokens for a swap"
+            "description": "Address of the user who initiates the transaction"
           },
           "to": {
             "type": "string",
-            "description": "swap Contract address"
+            "description": "The contract address"
           },
           "data": {
             "type": "string",
-            "description": "populated transaction"
+            "description": "The populated data of the transaction"
           },
           "value": {
             "type": "string",
-            "description": "transaction value"
+            "description": "The transaction value"
           },
           "gasLimit": {
             "type": "string",
-            "description": "transaction gas limit"
+            "description": "The transaction gas limit"
           }
         },
         "required": [
@@ -1523,8 +2063,9 @@
       "EstimatedCrossChainDto": {
         "type": "object",
         "properties": {
-          "crossChainName": {
-            "type": "string"
+          "crossChain": {
+            "type": "object",
+            "example": "number"
           },
           "tokenIn": {
             "type": "object",
@@ -1601,13 +2142,10 @@
               "amount": "string",
               "type": "number"
             }
-          },
-          "swapSpecData": {
-            "type": "object"
           }
         },
         "required": [
-          "crossChainName",
+          "crossChain",
           "tokenIn",
           "tokenOut",
           "amountIn",
@@ -1616,6 +2154,81 @@
           "approveAddress",
           "status",
           "msg"
+        ]
+      },
+      "CrosschainStatusResponseDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The status of the cross-chain"
+          },
+          "destTxHash": {
+            "type": "string",
+            "description": "The transaction hash on the destination network"
+          },
+          "cancelTxHash": {
+            "type": "string",
+            "description": "The cancel transaction hash on the source network"
+          }
+        },
+        "required": [
+          "status",
+          "destTxHash",
+          "cancelTxHash"
+        ]
+      },
+      "CrosschainCancelResponseDto": {
+        "type": "object",
+        "properties": {
+          "chainId": {
+            "type": "object",
+            "example": "number"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "data": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "gasLimit": {
+            "type": "string"
+          },
+          "cancelBeneficiary": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "chainId",
+          "from",
+          "to",
+          "data",
+          "value",
+          "gasLimit",
+          "cancelBeneficiary"
+        ]
+      },
+      "CrosschainOperatingExpensesResponseDto": {
+        "type": "object",
+        "properties": {
+          "operatingExpenses": {
+            "type": "string",
+            "description": "The execution cost of a cross-chain"
+          },
+          "fixFee": {
+            "type": "string",
+            "description": "The fixFee if the source token is the coin of the network"
+          }
+        },
+        "required": [
+          "operatingExpenses",
+          "fixFee"
         ]
       },
       "SrcChainTokenIn": {
