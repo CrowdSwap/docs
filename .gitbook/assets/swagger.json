@@ -823,7 +823,7 @@
             "name": "crosschain",
             "required": true,
             "in": "path",
-            "description": "The number representing the cross-chain service used to initiate the cross-chain. This value, denoted as ```crossChain```, is accessible in the ```estimate-all``` response.",
+            "description": "The number representing the cross-chain service used to initiate the cross-chain transaction. This value, denoted as ```crossChain```, is accessible in the ```estimate-all``` response.",
             "schema": {
               "type": "string"
             }
@@ -864,7 +864,7 @@
       "get": {
         "operationId": "CrossChainSwapController_getCancelTransaction",
         "summary": "This endpoint returns the transaction data to cancel a cross-chain",
-        "description": "This endpoint returns the transaction needed to cancel a cross-chain. The transaction must be sent to the destination blockchain, where it will send a message to the source blockchain. The user funds, including all associated fees, will then be refunded.",
+        "description": "This endpoint returns the transaction needed to cancel a cross-chain. The transaction must be sent to the destination blockchain. The user funds, including all associated fees, will then be refunded on the source blockchain.",
         "parameters": [
           {
             "name": "transactionHash",
@@ -878,7 +878,7 @@
             "name": "crosschain",
             "required": true,
             "in": "path",
-            "description": "The number representing the cross-chain service used to initiate the cross-chain. This value, denoted as ```crossChain```, is accessible in the ```estimate-all``` result.",
+            "description": "The number representing the cross-chain service used to initiate the cross-chain transaction. This value, denoted as ```crossChain```, is accessible in the ```estimate-all``` result.",
             "schema": {
               "type": "string"
             }

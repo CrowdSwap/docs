@@ -350,7 +350,7 @@ curl -X 'GET' \
 
 #### Cancel
 
-This endpoint returns the transaction needed to cancel a cross-chain. The transaction must be sent to the destination blockchain, where it will send a message to the source blockchain. The user funds, including all associated fees, will then be refunded.
+This endpoint returns the transaction needed to cancel a cross-chain. The transaction must be sent to the destination blockchain. The user funds, including all associated fees, will then be refunded on the source blockchain.
 
 - A number must be added to the url. The number represents the cross-chain service used to initiate the cross-chain. This value, denoted as ```crossChain```, is accessible in the estimation result.
 
