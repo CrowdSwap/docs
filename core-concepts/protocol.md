@@ -1,9 +1,26 @@
 # Protocol
 
-### Fees/Estimation calculation
+### Cross-Chain Fees
+
+At CrowdSwap, we believe in transparency and fairness, which extends to our fee structure for the Cross-Chain feature. CrowdSwap charges a nominal fee for each trade to facilitate the transaction and maintain the platform. The fee is a small percentage of the transaction amount, ensuring it remains affordable for all users.
+The transaction fee consists of:
+1. Flat Protocol Fee
+2. Variable Protocol Fee
+3. CrowdSwap Fee
+
+| Chain      | Flat Protocol Fee | Variable Protocol Fee       | CrowdSwap Fee          |
+| ---------- | ----------------- |  -------------------------- | ---------------------- |
+| Ethereum   | 0.001 ETH         | 0.04% - 0.08% of the amount | 0.2%- 1% of the amount |
+| BSC        | 0.005 BNB         | 0.04% - 0.08% of the amount | 0.2%- 1% of the amount |
+| Polygon    | 0.5 MATIC         | 0.04% - 0.08% of the amount | 0.2%- 1% of the amount |
+| Avalanche  | 0.01 AVAX         | 0.04% - 0.08% of the amount | 0.2%- 1% of the amount |
+| Arbitrum   | 0.001 ETH         | 0.04% - 0.08% of the amount | 0.2%- 1% of the amount |
+| Optimism   | 0.001 ETH         | 0.04% - 0.08% of the amount | 0.2%- 1% of the amount |
+
+### Swap Fees/Estimation calculation
   
-The price of source and destination tokens in USDT is inquired from coingecko or Binance APIs.
-The fee of each DEX and network cost are inquired from that DEX. Crowdswap fee is calculated as 0.1% of source price in USDT.
+The price of source and destination tokens in USD is inquired from coingecko or Binance APIs.
+The fee of each DEX and network cost are inquired from that DEX. Crowdswap fee is calculated as 0.1% of source price in USD.
 All fees are deducted from destination amount except liquidity provider fee which is deducted from source token amount.
 
 ###
@@ -12,7 +29,7 @@ All fees are deducted from destination amount except liquidity provider fee whic
 
 * Gas Price: [https://ethgasstation.info/](https://ethgasstation.info/)
 * Gas Cost: Historical gas usage of functions in the target DEX
-* Amount In USDT: source token amount * source token price in USDT
+* Amount In USD: source token amount * source token price in USD
 ###
 For example, by selecting ETH as source token and AUC as destination token, you can see fees are calculated based on data from estimation.
 Keep in mind that by clicking swap button, a new estimation will be performed based on the best price DEX. 
