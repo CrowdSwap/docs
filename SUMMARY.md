@@ -34,14 +34,12 @@
 - [Architecture](core-concepts/architecture.md)
 - [Protocol](core-concepts/protocol.md)
 - [Governance](core-concepts/governance/README.md)
-- [Proposals and voting](core-concepts/proposals-and-voting.md)
 - [Crowd Token](core-concepts/crowd-token.md)
-- [MultiSig](core-concepts/multisig.md)
 - [Security](core-concepts/security/README.md)
 
 ---
 
-- [WhitePaper](https://crowdswap.org/wp-content/uploads/2021/06/Whitepaper_V1-1.pdf)
+- [WhitePaper](https://crowdswap.org/wp-content/uploads/2023/08/Whitepaper20210403_EN_V1.2.pdf)
 - [FAQ](https://crowdswap.org/faq/)
 
 ## Tokenomics
