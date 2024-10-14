@@ -28,6 +28,7 @@
 
 - [Search](walkthroughs-product/search.md)
 - [Swap](walkthroughs-product/swap.md)
+- [Cross-Chain](walkthroughs-product/cross-chain.md)
 
 ## Core concepts
 
@@ -43,6 +44,7 @@
 - [FAQ](https://crowdswap.org/faq/)
 
 ## Tokenomics
+
 - [Overview](tokenomics/overview.md)
 
 ## Community
@@ -58,5 +60,5 @@
 - [Swap & Cross-Chain](developers/swap_api.md)
 - [Swap Widget](developers/widget.md)
 - [Smart Contract](developers/smart-contract.md)
-- [Guides](developers/guides.md)
+<!-- - [Guides](developers/guides.md) -->
 - [GitLab](https://gitlab.com/IT-Street/crowdswap)
