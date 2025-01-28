@@ -8,31 +8,27 @@ This page explains how the VIP Score is calculated and provides a breakdown of a
 - **CROWD Stake:** 1
 - **CROWD Locked Stake:** 1.5
 - **CROWD in Opportunity:** 5
-
-#### Notes
-
-- CROWD in the Opportunity pool is multiplied by 5.
-- Rewards earned from Opportunity are multiplied by 1.
+  - Notes:
+    - CROWD in the Opportunity pool is multiplied by **5**.
+    - Rewards earned from Opportunity are multiplied by **1**.
 - **Cross-Chain Transactions:** 50 points.
-
-#### Notes
-
-- Each cross-chain transaction contributes 50 points.
-- Cross-chain points are calculated daily and reset every day.
+  - Notes:
+    - Each cross-chain transaction contributes **50 points**.
+    - Cross-Chain points are calculated daily and reset every day.
 
 ## 2. Rules for LTH (Long-Term Holders)
 
 ### Eligibility Criteria for LTH
 
-- The CROWD bought and held until August 21, 2022, including those purchased during the Private Sale and Public Sale, will be considered as the LTH Amount.
-- If less than 10% of this LTH Amount has been sold until today, you will be considered a Long-Term Holder (LTH).
-- The LTH Amount will be doubled (multiplied by 2) and added to your points.
+- The **CROWD** bought and held until **August 21, 2022**, including those purchased during the **Private Sale** and **Public Sale**, will be considered as the **LTH Amount**.
+- If **less than 10%** of this LTH Amount has been sold until today, you will be considered a **Long-Term Holder** (LTH).
+- The LTH Amount will be **doubled** (multiplied by 2) and added to your points.
 
 #### Important
 
-- This 2x multiplier only applies to the LTH Amount, not to all your CROWD.
+- This **2x multiplier** only applies to the **LTH Amount**, not to all your CROWD.
 
-### Example
+#### Example
 
 #### Your Score without LTH Point:
 
