@@ -37,6 +37,7 @@
 - [Governance](core-concepts/governance/README.md)
 - [Crowd Token](core-concepts/crowd-token.md)
 - [Security](core-concepts/security/README.md)
+- [VIP Program](core-concepts/vip-program.md)
 
 ---
 
