@@ -13,7 +13,7 @@ This page explains how the VIP Score is calculated and provides a breakdown of a
     - Rewards earned from Opportunity are multiplied by **1**.
 - **Cross-Chain Transactions:** 50 points.
   - Notes:
-    - Each cross-chain transaction contributes **50 points**.
+    - Each cross-chain transaction contributes **50 points** (It means 50x The transaction's Dollar value).
     - Cross-Chain points are calculated daily and reset every day.
 
 ## 2. Rules for LTH (Long-Term Holders)
