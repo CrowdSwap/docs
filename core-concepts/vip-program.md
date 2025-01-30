@@ -22,31 +22,8 @@ This page explains how the VIP Score is calculated and provides a breakdown of a
 
 - The **CROWD** bought and held until **August 21, 2022**, including those purchased during the **Private Sale** and **Public Sale**, will be considered as the **LTH Amount**.
 - If **less than 10%** of this LTH Amount has been sold until today, you will be considered a **Long-Term Holder** (LTH).
-- The LTH Amount will be **doubled** (multiplied by 2) and added to your points.
-
-#### Important
-
-- This **2x multiplier** only applies to the **LTH Amount**, not to all your CROWD.
-
-#### Example
-
-#### Your Score without LTH Point:
-
-(CROWD in Wallet + CROWD in Stake + CROWD in Opportunity – LTH Amount) + 4 × CROWD in Opportunity + Reward from Opportunity
-
-Example Calculation:
-(100,000 + 1,000,000 + 150,000 – 250,000) + 4 × 150,000 + 10,000 = 1,610,000
-
-#### Your Score with LTH Point:
-
-Your Score without LTH Point + (2 × LTH Amount)
-
-Example Calculation:
-1,610,000 + (2 × 250,000) = 2,110,000
-
-#### Point
-
-In this example, the net **LTH Amount** (CROWD bought and held until August 21, 2022) is **250,000**, which was first deducted from the overall CROWD balance to calculate the total score without the LTH Point. Then, the LTH Amount was multiplied by **2** and added to the VIP score.
+- **LTH Point** represents the score for CROWD that you have bought and held until now.
+- If you qualify as a Long-Term Holder (LTH), your total score will be calculated as: <br/>**Total Score = Score based on all your CROWDs (Holding, Staking, ...) + LTH Points**
 
 ## 3. VIP Rewards
 
